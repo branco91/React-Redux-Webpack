@@ -4,17 +4,15 @@ import Navbar from '../components/Navbar'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
-import reducers from '../reducers'
+import listItems from '../reducers/list-items'
 import { Router, Route, hashHistory,  Link, IndexRoute } from 'react-router'
 import Home from '../containers/Home/Home.js'
 import List from '../containers/List/List.js'
 
-const store = createStore(
-    combineReducers({
-        app: reducers,
-        routing: routerReducer
-    })
-)
+const store = createStore(combineReducers({
+    listItems,
+    routing: routerReducer
+}))
 export default class App extends React.Component {
     render() {
         let {activeState,router}=this.props

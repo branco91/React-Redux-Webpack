@@ -10,6 +10,7 @@
   "author": "branco",
   "license": "ISC",
   "dependencies": {
+    "babel-preset-stage-2": "^6.5.0",
     "bootstrap-loader": "^1.0.10",
     "bootstrap-sass": "^3.3.6",
     "css-loader": "^0.23.1",
