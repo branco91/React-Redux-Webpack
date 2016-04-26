@@ -1,10 +1,14 @@
 import React from 'react'
 import {styles} from './styles.scss'
+import HomeImage from '../../components/HomeImage'
+import TechStack from '../../components/TechStack/'
+
 export default class Home extends React.Component {
     render() {
         return (
             <section className={styles}>
-                <h2>Home</h2>
+                <HomeImage/>
+                <TechStack/>
             </section>
         )
     }

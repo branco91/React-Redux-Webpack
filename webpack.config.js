@@ -1,15 +1,19 @@
 var path = require("path");
 var webpack = require("webpack")
+var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 
 module.exports = {
-    devtool:'source-map',
+    devtool: 'source-map',
     entry: ['bootstrap-loader', './index.js'],
     output: {
         path: path.join(__dirname, '/dist'),
         filename: "bundle.js",
-        publicPath: '/dist'
+        publicPath: '/dist/'
     },
+    plugins: [
+        new LiveReloadPlugin()
+    ],
     module: {
         loaders: [
             {
@@ -17,7 +21,7 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    presets: ['es2015', 'react','stage-2']
+                    presets: ['es2015', 'react', 'stage-2']
                 }
             },
             {
@@ -25,7 +29,7 @@ module.exports = {
                 loaders: ["style", "css", "sass"]
             },
             {
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                test: /\.(png|woff|woff2|eot|ttf|svg|jpg)$/,
                 loader: 'url-loader?limit=100000'
             }
         ]
